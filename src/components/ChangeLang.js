@@ -1,9 +1,8 @@
-import React, {useContext} from 'react'
-import LangContext from '../contexts/LangContext';
+import {useLang} from '../contexts/LangContext';
 //oluşturulan context kullanmak için useContext tolg kullanıyoruz 3. adım
 function ChangeLang() {
     //const lang = useContext(LangContext);//contexti yerleştir
-    const {lang,setLang} = useContext(LangContext);//ardında dil ve ona atama yapacak olan fonksiyonu al ve buttonların onclick doldur 9.adım
+    const {lang,setLang} = useLang();//ardında dil ve ona atama yapacak olan fonksiyonu al ve buttonların onclick doldur 9.adım
   return (
     <div>
         Aktif Dil :{lang}

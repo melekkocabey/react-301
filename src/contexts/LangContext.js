@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 const LangContext = createContext();//dil context
 //provider ilk adım
 //value değerini göndermek için provider ile companenti sarmalamak 
@@ -20,7 +20,13 @@ export const LangContextProvider = ({children}) =>{
         {children}
     </LangContext.Provider>
 }
+export const useLang=()=>{
+    const context = useContext(LangContext);
+    if(context === undefined)
+        throw new Error("useLang must be used within a LangProvider");
+    else 
+        return context;
+}
 
-
-//artık biz bu dili değiştirm eişlemi yapalım 8.adım
-export default LangContext;
+//artık biz bu dili değiştirme işlemi yapalım 8.adım
+//export default LangContext;//dışarıya aktar fakat dışarıya bu contect kullanmıyoruz

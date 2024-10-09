@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
 import ChangeLang from "./components/ChangeLang";
 import ChangeTheme from "./components/ChangeTheme";
 import Footers from "./components/Footers";
-import ThemeContext from './contexts/ThemeContext';
+import {useTheme} from './contexts/ThemeContext';
 
 function Container() {
-    const {theme} = useContext(ThemeContext);//themecontext parametre olarak ver 
+    const {theme} = useTheme();//themecontext parametre olarak ver 
 
   return (
     <div className={`container ${theme}`}>

@@ -2,6 +2,7 @@ import './styles.css';
 import LangContext, { LangContextProvider } from "./contexts/LangContext";
 import { ThemeContextProvider } from "./contexts/ThemeContext";
 import Container from './Container';
+import Footers from './components/Footers';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <ThemeContextProvider>
           <Container/>
         </ThemeContextProvider>
-        </LangContextProvider>
+      </LangContextProvider>
   );
 }
 

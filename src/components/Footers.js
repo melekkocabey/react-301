@@ -1,11 +1,10 @@
-import {React,useContext} from 'react'
-import ThemeContext from '../contexts/ThemeContext'
-import LangContext from '../contexts/LangContext';
+import {useTheme} from '../contexts/ThemeContext'
+import LangContext, { useLang } from '../contexts/LangContext';
 
 //aynı footer da görelim
 function Footers() {
-    const {theme,toggleTheme} = useContext(ThemeContext);
-    const {lang} = useContext(LangContext);//DİL ALAKALI VERİYİ AL 10.ADIM
+    const {theme,toggleTheme} = useTheme();
+    const {lang} = useLang();//DİL ALAKALI VERİYİ AL 10.ADIM
   return (
     <div>
       <hr/>

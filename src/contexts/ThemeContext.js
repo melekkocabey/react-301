@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext(); // Sabit
 
@@ -7,7 +7,7 @@ const defaultTheme = localStorage.getItem("theme") || "light";//a.3) tema varsa 
 
 export const ThemeContextProvider = ({ children }) => {
     //const [theme, setTheme] = useState('light');
-    const [theme, setTheme] = useState(defaultTheme);//a.4) state bu bilgi varsayılan olarak da defaultheme verdik
+    const [  theme, setTheme] = useState(defaultTheme);//a.4) state bu bilgi varsayılan olarak da defaultheme verdik
 
     useEffect(() =>{
         localStorage.setItem("theme",theme)
@@ -29,7 +29,13 @@ export const ThemeContextProvider = ({ children }) => {
         </ThemeContext.Provider>
     );
 };
-
-export default ThemeContext;
+//ilk önce custom bir hook oluşturuyoruz 
+export const useTheme = () =>{
+    const context = useContext(ThemeContext);
+    if(context === undefined){
+        throw new Error("useTheme must be used within a ThemeProvider");
+    }
+    else return context;
+}
 //a.1) eğer local storage üzerine bilgi yazarsak ve bir dahaki seferede 
 //bu state local storage den gelen ifade ile dolduracağız.İlk adım 
